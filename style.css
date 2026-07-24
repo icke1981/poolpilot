@@ -5,7 +5,6 @@ button{background:#007AFF;color:#fff;border:none;font-size:16px}
 .status{padding:10px;border-radius:10px;background:#eef;margin-bottom:10px;font-weight:bold}
 .ok{color:#0a8f2e}.warn{color:#c78600}.bad{color:#d40000}
 .dashboard{
-.dashboard{
     display:grid;
     grid-template-columns:repeat(2,minmax(0,1fr));
     gap:12px;
@@ -28,3 +27,4 @@ button{background:#007AFF;color:#fff;border:none;font-size:16px}
 .box div{
     font-size:28px;
     font-weight:bold;
+}
