@@ -9,14 +9,13 @@ else if(cl>1.5){res+="<p class='warn'>Chlor zu hoch</p>";dose+="• Vor weiterer
 else res+="<p class='ok'>Chlor optimal</p>";
 if(taV<80||taV>120)res+="<p class='warn'>TA prüfen</p>";
 if(cyaV>50){res+="<p class='warn'>CYA hoch – Teilwasserwechsel prüfen.</p>";}
-status.innerText="Status: "+state;document.getElementById("phStatus").innerText=ph;
+status.innerText="Status: "+state;
 
-document.getElementById("chlorStatus").innerText=cl+" mg/l";
-
-document.getElementById("tempStatus").innerText=temp.value+" °C";
-
-document.getElementById("nextMeasure").innerTex
 result.innerHTML=res;
+document.getElementById("phStatus").innerText=ph;
+document.getElementById("chlorStatus").innerText=cl+" mg/l";
+document.getElementById("tempStatus").innerText=temp.value+" °C";
+document.getElementById("nextMeasure").innerTex
 dose=dose||"Keine Korrektur erforderlich.";
 document.getElementById("dose").innerHTML=dose;
 dosage(ph, cl);
