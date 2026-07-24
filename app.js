@@ -12,9 +12,9 @@ if(cyaV>50){res+="<p class='warn'>CYA hoch – Teilwasserwechsel prüfen.</p>";}
 status.innerText="Status: "+state;
 
 result.innerHTML=res;
-document.getElementById("phStatus").innerText=ph.toFixed(2);
-document.getElementById("chlorStatus").innerText=cl toFixed(2)+" mg/l";
-document.getElementById("tempStatus").innerText=temp.value+" °C";
+document.getElementById("phStatus").innerText = ph.toFixed(2);
+document.getElementById("chlorStatus").innerText = cl.toFixed(2)+" mg/l";
+document.getElementById("tempStatus").innerText = temp.value+" °C";
 document.getElementById("nextMeasure").innerTex = "Heute";
 dose=dose||"Keine Korrektur erforderlich.";
 document.getElementById("dose").innerHTML=dose;
