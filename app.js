@@ -1,5 +1,4 @@
 function check(){
-  alert("check läuft");
 const ph=+phEl.value,cl=+chlor.value,taV=+ta.value,cyaV=+cya.value;
 let res="",dose="",state="🟢 Wasserwerte gut";
 if(ph<7){res+="<p class='warn'>pH zu niedrig</p>";dose+="• pH-Heber nach Herstellerangabe dosieren.<br>";state="🟡 pH korrigieren";}
