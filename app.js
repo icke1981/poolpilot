@@ -13,9 +13,34 @@ status.innerText="Status: "+state;
 result.innerHTML=res;
 dose=dose||"Keine Korrektur erforderlich.";
 document.getElementById("dose").innerHTML=dose;
+dosage(ph, cl);
 localStorage.setItem("poolpilot12",JSON.stringify({date:date.value,ph,cl,ta:taV,cya:cyaV,temp:temp.value}));
 }
 window.onload=()=>{
 date.value=new Date().toISOString().slice(0,10);
 window.phEl=document.getElementById('ph');
+}const dose = document.getElementById("dose");
+
+function dosage(ph, chlor) {
+let text = "";
+
+if (ph > 7.4) {
+text += "🧪 pH-Minus: ca. 70 g hinzufügen.<br>";
+} else if (ph < 7.0) {
+text += "🧪 pH-Plus erforderlich.<br>";
+} else {
+text += "✅ pH-Wert ist optimal.<br>";
+}
+
+if (chlor < 0.5) {
+text += "💊 Chlorgranulat: ca. 35 g zugeben.<br>";
+} else if (chlor > 1.5) {
+text += "⚠️ Chlor zu hoch – kein Chlor nachdosieren.<br>";
+} else {
+text += "✅ Chlorgehalt optimal.<br>";
+}
+
+text += "🟦 Multitab: 1 Tablette alle 7–10 Tage.";
+
+dose.innerHTML = text;
 }
