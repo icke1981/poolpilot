@@ -1,4 +1,5 @@
 function check(){
+  alert("check läuft");
 const ph=+phEl.value,cl=+chlor.value,taV=+ta.value,cyaV=+cya.value;
 let res="",dose="",state="🟢 Wasserwerte gut";
 if(ph<7){res+="<p class='warn'>pH zu niedrig</p>";dose+="• pH-Heber nach Herstellerangabe dosieren.<br>";state="🟡 pH korrigieren";}
@@ -15,16 +16,27 @@ result.innerHTML=res;
 document.getElementById("phStatus").innerText = ph.toFixed(2);
 document.getElementById("chlorStatus").innerText = cl.toFixed(2)+" mg/l";
 document.getElementById("tempStatus").innerText = temp.value+" °C";
-document.getElementById("nextMeasure").innerTex = "Heute";
+document.getElementById("nextMeasure").innerText = "Heute";
 dose=dose||"Keine Korrektur erforderlich.";
 document.getElementById("dose").innerHTML=dose;
 dosage(ph, cl);
 localStorage.setItem("poolpilot12",JSON.stringify({date:date.value,ph,cl,ta:taV,cya:cyaV,temp:temp.value}));
 }
-window.onload=()=>{
-date.value=new Date().toISOString().slice(0,10);
-window.phEl=document.getElementById('ph');
-}const dose = document.getElementById("dose");
+window.onload = () => {
+
+    window.date = document.getElementById("date");
+    window.phEl = document.getElementById("ph");
+    window.chlor = document.getElementById("chlor");
+    window.ta = document.getElementById("ta");
+    window.cya = document.getElementById("cya");
+    window.temp = document.getElementById("temp");
+  
+    window.status = document.getElementById("status");
+    window.result = document.getElementById("result");
+    window.dose = document.getElementById("dose"); 
+
+  date.value = new Date().toISOString().slice(0,10);
+
 
 function dosage(ph, chlor) {
 let text = "";
