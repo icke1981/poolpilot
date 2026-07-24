@@ -7,18 +7,18 @@ button{background:#007AFF;color:#fff;border:none;font-size:16px}
 .dashboard{
 .dashboard{
     display:grid;
-    grid-template-columns:1fr 1fr;
+    grid-template-columns:repeat(2,minmax(0,1fr));
     gap:12px;
+    width:100%;
     margin:20px 0;
 }
 .box{
     background:#fff;
     border-radius:16px;
-    padding:18px;
+    padding:15px;
     text-align:center;
-    box-shadow:0 4px 12px rgba(0,0,0,.08);
-    width:100%;
     box-sizing:border-box;
+    min-width:0;
 }
 .box h3{
     margin:0 0 10px;
