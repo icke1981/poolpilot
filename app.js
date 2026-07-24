@@ -1,16 +1,21 @@
 function check(){
-let ph=+document.getElementById('ph').value;
-let cl=+document.getElementById('chlor').value;
-let ta=+document.getElementById('ta').value;
-let cya=+document.getElementById('cya').value;
-let r='<h2>Ergebnis</h2>';
-r+=(ph>=7&&ph<=7.4)?'<p class="ok">🟢 pH optimal</p>':'<p class="warn">🟡 pH korrigieren</p>';
-r+=(cl>=0.5&&cl<=1.5)?'<p class="ok">🟢 Chlor optimal</p>':'<p class="warn">🟡 Chlor prüfen</p>';
-r+=(ta>=80&&ta<=120)?'<p class="ok">🟢 TA optimal</p>':'<p class="warn">🟡 TA außerhalb Idealbereich</p>';
-r+=(cya>=20&&cya<=50)?'<p class="ok">🟢 CYA optimal</p>':'<p class="warn">🟡 CYA prüfen</p>';
-document.getElementById('result').innerHTML=r;
-localStorage.setItem('poolpilot11',JSON.stringify({
-date:date.value,ph,cl,ta,cya,temp:temp.value
-}));
+const ph=+phEl.value,cl=+chlor.value,taV=+ta.value,cyaV=+cya.value;
+let res="",dose="",state="🟢 Wasserwerte gut";
+if(ph<7){res+="<p class='warn'>pH zu niedrig</p>";dose+="• pH-Heber nach Herstellerangabe dosieren.<br>";state="🟡 pH korrigieren";}
+else if(ph>7.4){res+="<p class='warn'>pH zu hoch</p>";dose+="• pH-Senker nach Herstellerangabe dosieren.<br>";state="🟡 pH korrigieren";}
+else res+="<p class='ok'>pH optimal</p>";
+if(cl<0.5){res+="<p class='warn'>Chlor zu niedrig</p>";dose+="• Schnellchlor (z. B. Bayrol Chloryte) nach Herstellerangabe zugeben.<br>";state="🟡 Chlor erhöhen";}
+else if(cl>1.5){res+="<p class='warn'>Chlor zu hoch</p>";dose+="• Vor weiterer Chlorzugabe warten.<br>";}
+else res+="<p class='ok'>Chlor optimal</p>";
+if(taV<80||taV>120)res+="<p class='warn'>TA prüfen</p>";
+if(cyaV>50){res+="<p class='warn'>CYA hoch – Teilwasserwechsel prüfen.</p>";}
+status.innerText="Status: "+state;
+result.innerHTML=res;
+dose=dose||"Keine Korrektur erforderlich.";
+document.getElementById("dose").innerHTML=dose;
+localStorage.setItem("poolpilot12",JSON.stringify({date:date.value,ph,cl,ta:taV,cya:cyaV,temp:temp.value}));
 }
-window.onload=()=>{date.value=new Date().toISOString().slice(0,10);}
+window.onload=()=>{
+date.value=new Date().toISOString().slice(0,10);
+window.phEl=document.getElementById('ph');
+}
