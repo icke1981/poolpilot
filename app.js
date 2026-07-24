@@ -19,7 +19,7 @@ dose=dose||"Keine Korrektur erforderlich.";
 document.getElementById("dose").innerHTML=dose;
 dosage(ph, cl);
 localStorage.setItem("poolpilot12",JSON.stringify({date:date.value,ph,cl,ta:taV,cya:cyaV,temp:temp.value}));
-}
+showHistory();}
 window.onload = () => {
     window.date = document.getElementById("date");
     window.phEl = document.getElementById("ph");
@@ -31,6 +31,7 @@ window.onload = () => {
     window.result = document.getElementById("result");
     window.dose = document.getElementById("dose"); 
   date.value = new Date().toISOString().slice(0,10);
+    showHistory();
   };
 function dosage(ph, chlor) {
 let text = "";
@@ -51,3 +52,37 @@ text += "✅ Chlorgehalt optimal.<br>";
 text += "🟦 Multitab: 1 Tablette alle 7–10 Tage.";
 dose.innerHTML = text;
 }
+
+function showHistory() {
+
+    const data = JSON.parse(localStorage.getItem("poolpilot12") || "{}");
+
+    const history = document.getElementById("history");
+
+    if (!history) return;
+
+    if (!data.date) {
+
+        history.innerHTML = "Noch keine Messungen vorhanden.";
+
+        return;
+
+    }
+
+    history.innerHTML = `
+
+        <b>${data.date}</b><br>
+
+        pH: ${data.ph}<br>
+
+        Chlor: ${data.cl} mg/l<br>
+
+        TA: ${data.ta}<br>
+
+        CYA: ${data.cya}<br>
+
+        Temperatur: ${data.temp} °C
+
+    `;
+}
+
