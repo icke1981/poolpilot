@@ -36,7 +36,7 @@ window.onload = () => {
     window.dose = document.getElementById("dose"); 
 
   date.value = new Date().toISOString().slice(0,10);
-};
+   };
 
 function dosage(ph, chlor) {
 let text = "";
