@@ -51,6 +51,34 @@ text += "✅ Chlorgehalt optimal.<br>";
 }
 text += "🟦 Multitab: 1 Tablette alle 7–10 Tage.";
 dose.innerHTML = text;
+document.getElementById("phStatus").innerText = Number(data.ph).toFixed(2);
+
+document.getElementById("chlorStatus").innerText = Number(data.cl).toFixed(2) + " mg/l";
+
+document.getElementById("tempStatus").innerText = data.temp + " °C";
+
+document.getElementById("nextMeasure").innerText = "Heute";
+
+if (data.ph < 7) {
+
+    status.innerText = "Status: 🟡 pH korrigieren";
+
+} else if (data.ph > 7.4) {
+
+    status.innerText = "Status: 🟡 pH korrigieren";
+
+} else if (data.cl < 0.5) {
+
+    status.innerText = "Status: 🟡 Chlor erhöhen";
+
+} else if (data.cl > 1.5) {
+
+    status.innerText = "Status: 🟡 Chlor zu hoch";
+
+} else {
+
+    status.innerText = "Status: 🟢 Wasserwerte gut";
+
 }
 
 function showHistory() {
