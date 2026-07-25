@@ -71,18 +71,14 @@ function showHistory() {
 
     history.innerHTML = `
 
+
+
         <b>${data.date}</b><br>
-
         pH: ${data.ph}<br>
-
         Chlor: ${data.cl} mg/l<br>
-
         TA: ${data.ta}<br>
-
         CYA: ${data.cya}<br>
-
         Temperatur: ${data.temp} °C
-
-    `;
+ `;
 }
 
