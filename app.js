@@ -51,6 +51,24 @@ text += "✅ Chlorgehalt optimal.<br>";
 }
 text += "🟦 Multitab: 1 Tablette alle 7–10 Tage.";
 dose.innerHTML = text;
+}
+
+function showHistory() {
+ const data = JSON.parse(localStorage.getItem("poolpilot12") || "{}");
+const history = document.getElementById("history");
+ if (!history) return;
+if (!data.date) {
+ history.innerHTML = "Noch keine Messungen vorhanden.";
+ return;
+ }
+ history.innerHTML = `
+        <b>${data.date}</b><br>
+        pH: ${data.ph}<br>
+        Chlor: ${data.cl} mg/l<br>
+        TA: ${data.ta}<br>
+        CYA: ${data.cya}<br>
+        Temperatur: ${data.temp} °C
+ `;
 document.getElementById("phStatus").innerText = Number(data.ph).toFixed(2);
 
 document.getElementById("chlorStatus").innerText = Number(data.cl).toFixed(2) + " mg/l";
@@ -77,25 +95,5 @@ if (data.ph < 7) {
 
 } else {
 
-    status.innerText = "Status: 🟢 Wasserwerte gut";
-
-}
-
-function showHistory() {
- const data = JSON.parse(localStorage.getItem("poolpilot12") || "{}");
-const history = document.getElementById("history");
- if (!history) return;
-if (!data.date) {
- history.innerHTML = "Noch keine Messungen vorhanden.";
- return;
- }
- history.innerHTML = `
-        <b>${data.date}</b><br>
-        pH: ${data.ph}<br>
-        Chlor: ${data.cl} mg/l<br>
-        TA: ${data.ta}<br>
-        CYA: ${data.cya}<br>
-        Temperatur: ${data.temp} °C
- `;
-}
+    status.innerText = "Status: 🟢 Wasserwerte gut";}
 
