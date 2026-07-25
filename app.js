@@ -95,5 +95,6 @@ if (data.ph < 7) {
 
 } else {
 
-    status.innerText = "Status: 🟢 Wasserwerte gut";}
+    status.innerText = "Status: 🟢 Wasserwerte gut";
+}
 
