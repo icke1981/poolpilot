@@ -54,25 +54,14 @@ dose.innerHTML = text;
 }
 
 function showHistory() {
-
-    const data = JSON.parse(localStorage.getItem("poolpilot12") || "{}");
-
-    const history = document.getElementById("history");
-
-    if (!history) return;
-
-    if (!data.date) {
-
-        history.innerHTML = "Noch keine Messungen vorhanden.";
-
-        return;
-
-    }
-
-    history.innerHTML = `
-
-
-
+ const data = JSON.parse(localStorage.getItem("poolpilot12") || "{}");
+const history = document.getElementById("history");
+ if (!history) return;
+if (!data.date) {
+ history.innerHTML = "Noch keine Messungen vorhanden.";
+ return;
+ }
+ history.innerHTML = `
         <b>${data.date}</b><br>
         pH: ${data.ph}<br>
         Chlor: ${data.cl} mg/l<br>
