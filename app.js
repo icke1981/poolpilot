@@ -111,6 +111,67 @@ async function loadWeather() {
 
 }
 function dosage(ph, chlor) {
+    function dosage(ph, chlor) {
+
+const pool = 7200;
+
+let text = "<h3>Dosierung für 7.200 Liter</h3>";
+
+/* pH */
+
+if (ph > 7.4) {
+
+let gramm = Math.round(((ph - 7.2) / 0.1) * 72);
+
+text += "🧪 Cristal pH-Senker: <b>" + gramm + " g</b><br>";
+
+} else if (ph < 7.0) {
+
+let gramm = Math.round(((7.2 - ph) / 0.1) * 72);
+
+text += "🧪 Cristal pH-Heber: <b>" + gramm + " g</b><br>";
+
+} else {
+
+text += "✅ pH optimal.<br>";
+
+}
+
+/* Chlor */
+
+if (chlor < 0.5) {
+
+let gramm = Math.round(50 * 0.72);
+
+text += "💊 Bayrol Chloryte: <b>" + gramm + " g</b><br>";
+
+} else if (chlor > 1.5) {
+
+text += "⚠️ Chlor zu hoch – kein Chlor zugeben.<br>";
+
+} else {
+
+text += "✅ Chlor optimal.<br>";
+
+}
+
+/* Multitab */
+
+if (chlor < 1.0) {
+
+text += "🟦 GlobaClean: 1 Tablette einlegen.<br>";
+
+} else {
+
+text += "🟦 Keine neue Tablette erforderlich.<br>";
+
+}
+
+text += "<br>⏳ Filteranlage mindestens 12 Stunden laufen lassen.";
+
+dose.innerHTML = text;
+
+}
 let text = "";
 if (ph > 7.4) {
 text += "🧪 pH-Minus: ca. 70 g hinzufügen.<br>";
