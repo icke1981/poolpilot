@@ -19,7 +19,8 @@ dose=dose||"Keine Korrektur erforderlich.";
 document.getElementById("dose").innerHTML=dose;
 dosage(ph, cl);
 localStorage.setItem("poolpilot12",JSON.stringify({date:date.value,ph,cl,ta:taV,cya:cyaV,temp:temp.value}));
-showHistory();}
+showHistory();
+}
 window.onload = () => {
     window.date = document.getElementById("date");
     window.phEl = document.getElementById("ph");
@@ -32,7 +33,83 @@ window.onload = () => {
     window.dose = document.getElementById("dose"); 
   date.value = new Date().toISOString().slice(0,10);
     showHistory();
+    loadWeather();
   };
+async function loadWeather() {
+
+    try {
+
+        const url = "https://api.open-meteo.com/v1/forecast?latitude=51.55&longitude=7.31&current=temperature_2m,weather_code";
+
+        const response = await fetch(url);
+
+        const data = await response.json();
+
+        document.getElementById("weatherTemp").innerText =
+
+            data.current.temperature_2m + " °C";
+
+        let text = "Unbekannt";
+
+        switch (data.current.weather_code) {
+
+            case 0:
+
+                text = "☀️ Sonnig";
+
+                break;
+
+            case 1:
+
+            case 2:
+
+            case 3:
+
+                text = "⛅ Teilweise bewölkt";
+
+                break;
+
+            case 45:
+
+            case 48:
+
+                text = "🌫 Nebel";
+
+                break;
+
+            case 61:
+
+            case 63:
+
+            case 65:
+
+                text = "🌧 Regen";
+
+                break;
+
+            case 71:
+
+            case 73:
+
+            case 75:
+
+                text = "❄️ Schnee";
+
+                break;
+
+        }
+
+        document.getElementById("weatherText").innerText = text;
+
+    } catch (e) {
+
+        document.getElementById("weatherText").innerText =
+
+            "Wetter nicht verfügbar";
+
+    }
+
+}
 function dosage(ph, chlor) {
 let text = "";
 if (ph > 7.4) {
