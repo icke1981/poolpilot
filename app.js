@@ -111,7 +111,6 @@ async function loadWeather() {
 
 }
 function dosage(ph, chlor) {
-    function dosage(ph, chlor) {
 
 const pool = 7200;
 
