@@ -28,6 +28,8 @@ window.onload = () => {
     window.ta = document.getElementById("ta");
     window.cya = document.getElementById("cya");
     window.temp = document.getElementById("temp");
+     {
+         innerHTML = letzte Messung: ${data.date};
     window.status = document.getElementById("status");
     window.result = document.getElementById("result");
     window.dose = document.getElementById("dose"); 
