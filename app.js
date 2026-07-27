@@ -118,7 +118,7 @@ let text = "<h3>Dosierung für 7.200 Liter</h3>";
 
 if (ph > 7.4) {
 
-let gramm = Math.max(0, Math.round ph - 7.2) / 0.1) * 72));
+let gramm = Math.max(0, Math.round(((ph - 7.2) / 0.1) * 72));
 
 text += "🧪 Cristal pH-Senker: <b>" + gramm + " g</b><br>";
 
