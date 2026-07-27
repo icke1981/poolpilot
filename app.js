@@ -118,13 +118,13 @@ let text = "<h3>Dosierung für 7.200 Liter</h3>";
 
 if (ph > 7.4) {
 
-let gramm = Math.round(((ph - 7.2) / 0.1) * 72);
+let gramm = Math.max(0, Math.round ph - 7.2) / 0.1) * 72));
 
 text += "🧪 Cristal pH-Senker: <b>" + gramm + " g</b><br>";
 
 } else if (ph < 7.0) {
 
-let gramm = Math.round(((7.2 - ph) / 0.1) * 72);
+let gramm = Math.max(0, math.round(((7.2 - ph) / 0.1) * 72));
 
 text += "🧪 Cristal pH-Heber: <b>" + gramm + " g</b><br>";
 
@@ -138,7 +138,7 @@ text += "✅ pH optimal.<br>";
 
 if (chlor < 0.5) {
 
-let gramm = Math.round(50 * 0.72);
+let gramm = Math.max(0, Math.round((1.0 - chlor) *72));
 
 text += "💊 Bayrol Chloryte: <b>" + gramm + " g</b><br>";
 
