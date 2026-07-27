@@ -117,7 +117,23 @@ let text = "<h3>Dosierung für 7.200 Liter</h3>";
 /* pH */
 
 if (ph > 7.4) {
+const phMinusName =
 
+document.getElementById("phMinus").options[
+
+document.getElementById("phMinus").selectedIndex
+
+].text;
+
+const phPlusName =
+
+document.getElementById("phPlus").options[
+
+document.getElementById("phPlus").selectedIndex
+
+].text;
+
+text += "🧪 " + phPlusName + ": <b>" + gramm + " g</b><br>";
 let gramm = Math.max(0, Math.round(((ph - 7.2) / 0.1) * 72));
 
 text += "🧪 Cristal pH-Senker: <b>" + gramm + " g</b><br>";
