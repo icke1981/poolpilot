@@ -106,9 +106,7 @@ async function loadWeather() {
         document.getElementById("weatherText").innerText =
 
             "Wetter nicht verfügbar";
-
     }
-
 }
 function dosage(ph, chlor) {
 
@@ -169,28 +167,9 @@ text += "🟦 Keine neue Tablette erforderlich.<br>";
 text += "<br>⏳ Filteranlage mindestens 12 Stunden laufen lassen.";
 
 dose.innerHTML = text;
-
-}
-let text = "";
-if (ph > 7.4) {
-text += "🧪 pH-Minus: ca. 70 g hinzufügen.<br>";
-} else if (ph < 7.0) {
-text += "🧪 pH-Plus erforderlich.<br>";
-} else {
-text += "✅ pH-Wert ist optimal.<br>";
-}
-if (chlor < 0.5) {
-text += "💊 Chlorgranulat: ca. 35 g zugeben.<br>";
-} else if (chlor > 1.5) {
-text += "⚠️ Chlor zu hoch – kein Chlor nachdosieren.<br>";
-} else {
-text += "✅ Chlorgehalt optimal.<br>";
-}
-text += "🟦 Multitab: 1 Tablette alle 7–10 Tage.";
-dose.innerHTML = text;
 }
 
-function showHistory() {
+ function showHistory() {
  const data = JSON.parse(localStorage.getItem("poolpilot12") || "{}");
 const history = document.getElementById("history");
  if (!history) return;
