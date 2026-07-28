@@ -179,7 +179,14 @@ text += "🟦 GlobaClean: 1 Tablette einlegen.<br>";
 text += "🟦 Keine neue Tablette erforderlich.<br>";
 
 }
+//Antichlor- Empfehlung    
+if (chlor > 3.0) {
 
+    let gramm = Math.round((chlor - 3.0) * 7.2);
+
+    text += "🟣 Antichlor: <b>" + gramm + " g</b><br>";
+
+}
 text += "<br>⏳ Filteranlage mindestens 12 Stunden laufen lassen.";
 
 dose.innerHTML = text;
