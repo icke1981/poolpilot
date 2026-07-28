@@ -200,8 +200,7 @@ if (!data.date) {
         TA: ${data.ta}<br>
         CYA: ${data.cya}<br>
         Temperatur: ${data.temp} °C
-         {
-         innerHTML = letzte Messung: ${data.date}`;
+         `;
 document.getElementById("phStatus").innerText = Number(data.ph).toFixed(2);
 document.getElementById("chlorStatus").innerText = Number(data.cl).toFixed(2) + " mg/l";
 document.getElementById("tempStatus").innerText = data.temp + " °C";
