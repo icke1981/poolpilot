@@ -228,57 +228,57 @@ if (data.ph < 7) {
 }  
 function drawChart() {
 
-const canvas = document.getElementById("chart");
+    const canvas = document.getElementById("chart");
 
-if (!canvas) return;
+    if (!canvas) return;
 
-const data = JSON.parse(
+    const data = JSON.parse(
 
-localStorage.getItem("poolpilot12") || “{}“
+        localStorage.getItem("poolpilot12") || "{}"
 
-);
+    );
 
-if (!data.date) return;
+    if (!data.date) return;
 
-new Chart(canvas, {
+    new Chart(canvas, {
 
-type: "line",
+        type: "line",
 
-data: {
+        data: {
 
-labels: [data.date],
+            labels: [data.date],
 
-datasets: [
+            datasets: [
 
-{
+                {
 
-label: "pH",
+                    label: "pH",
 
-data: [Number( data.ph )]
+                    data: [Number(data.ph)]
 
-},
+                },
 
-{
+                {
 
-label: "Chlor",
+                    label: "Chlor",
 
-data: [Number( data.cl )]
+                    data: [Number(data.cl)]
 
-},
+                },
 
-{
+                {
 
-label: "Temperatur",
+                    label: "Temperatur",
 
-data: [Number(data.temp)]
+                    data: [Number(data.temp)]
 
-}
+                }
 
-]
+            ]
 
-}
+        }
 
-});
+    });
 
 }
 📈
