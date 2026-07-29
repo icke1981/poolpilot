@@ -225,10 +225,7 @@ if (data.ph < 7) {
  status.innerText = "Status: 🟢 Wasserwerte gut";
 }
 }    
-📈 Wasserwerte-Verlauf
-
-[ pH ]   [ Chlor ]   [ Temperatur ]
-
+📈
 ──────────────
 
         📈
