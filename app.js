@@ -33,6 +33,7 @@ window.onload = () => {
     window.dose = document.getElementById("dose"); 
   date.value = new Date().toISOString().slice(0,10);
     showHistory();
+    drawChart();
     loadWeather();
   };
 async function loadWeather() {
@@ -224,7 +225,62 @@ if (data.ph < 7) {
 } else {
  status.innerText = "Status: 🟢 Wasserwerte gut";
 }
-}    
+}  
+function drawChart() {
+
+const canvas = document.getElementById("chart");
+
+if (!canvas) return;
+
+const data = JSON.parse(
+
+localStorage.getItem("poolpilot12") || „{}“
+
+);
+
+if (!data.date) return;
+
+new Chart(canvas, {
+
+Typ: "Zeile",
+
+Daten: {
+
+Labels: [data.date],
+
+Datensätze: [
+
+{
+
+Bezeichnung: "pH",
+
+Daten: [Number( data.ph )]
+
+},
+
+{
+
+Bezeichnung: "Chlor",
+
+Daten: [Number( data.cl )]
+
+},
+
+{
+
+Bezeichnung: "Temperatur",
+
+Daten: [Number(data.temp)]
+
+}
+
+]
+
+}
+
+});
+
+}
 📈
 ──────────────
 
