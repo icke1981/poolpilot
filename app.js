@@ -234,7 +234,7 @@ if (!canvas) return;
 
 const data = JSON.parse(
 
-localStorage.getItem("poolpilot12") || „{}“
+localStorage.getItem("poolpilot12") || “{}“
 
 );
 
@@ -242,35 +242,35 @@ if (!data.date) return;
 
 new Chart(canvas, {
 
-Typ: "Zeile",
+type: "line",
 
-Daten: {
+data: {
 
-Labels: [data.date],
+labels: [data.date],
 
-Datensätze: [
+datasets: [
 
 {
 
-Bezeichnung: "pH",
+label: "pH",
 
-Daten: [Number( data.ph )]
+data: [Number( data.ph )]
 
 },
 
 {
 
-Bezeichnung: "Chlor",
+label: "Chlor",
 
-Daten: [Number( data.cl )]
+data: [Number( data.cl )]
 
 },
 
 {
 
-Bezeichnung: "Temperatur",
+label: "Temperatur",
 
-Daten: [Number(data.temp)]
+data: [Number(data.temp)]
 
 }
 
