@@ -112,6 +112,9 @@ async function loadWeather() {
 function dosage(ph, chlor) {
 
 const pool = 7200;
+    
+const cya = Number(document.getElementById("cya").value);
+const temp = Number(document.getElementById("temp").value);
 
 let text = "<h3>Dosierung für 7.200 Liter</h3>";
 
