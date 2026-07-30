@@ -105,6 +105,8 @@ const url = "https://api.open-meteo.com/v1/forecast?latitude=51.55&longitude=7.3
 
             "Wetter nicht verfügbar";
     }
+
+}
     function berechneAktivchlor(ph, dpd1, cya, temp) {
     const pKs = 7.54 - (0.028 * (temp - 25));
     const hocl = 1 / (1 + Math.pow(10, ph - pKs));
