@@ -137,7 +137,7 @@ document.getElementById("phPlus").selectedIndex
 
 ].text;
 text += "🧪 " + phPlusName + ": <b>" + gramm + " g</b><br>";
-let gramm = Math.max(0, Math.round(((ph - 7.2) / 0.1) * 72));
+let gramm = 0;
 text += "🧪 Cristal pH-Senker: <b>" + gramm + " g</b><br>";
 } else if (ph < 7.0) {
 let gramm = Math.max(0, math.round(((7.2 - ph) / 0.1) * 72));
@@ -157,7 +157,7 @@ if (aktivChlor < 0.30) {
     let neuesDPD = chlor * faktor;
     let gramm = Math.max(0, Math.round((neuesDPD - chlor) * 72));
     text += "🔴 Aktivchlor zu niedrig<br>";
-    text += "🧪 Bayrol Chloryte: <b>" + gramm + " g</b><br>";
+   text += "⚠️ Dosierung wird noch berechnet – bitte nicht nach dieser Anzeige dosieren.<br>"; 
 }
 else if (aktivChlor > 0.60) {
     text += "🟡 Aktivchlor zu hoch.<br>";
