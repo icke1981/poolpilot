@@ -145,7 +145,7 @@ text += "✅ pH optimal.<br>";
 
 }
 // Aktiv wirksames Chlor berechnen
-let aktivChlor = chlor * Math.pow(10, (7.5 - ph)) / (1 + (cya / 20));
+let aktivChlor = berechneAktivchlor(ph, chlor, cya, temp);
 aktivChlor = Math.max(0, aktivChlor);
 text += "🧪 Freies Chlor (DPD1): <b>" + chlor.toFixed(2) + " mg/L</b><br>";
 text += "⚡ Aktiv wirksames Chlor: <b>" + aktivChlor.toFixed(2) + " mg/L</b><br><br>";
