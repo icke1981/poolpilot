@@ -138,7 +138,6 @@ text += "🧪 Cristal pH-Heber: <b>" + gramm + " g</b><br>";
 text += "✅ pH optimal.<br>";
 
 }
-/* Aktiv wirksames Chlor */
 // Aktiv wirksames Chlor berechnen
 let aktivChlor = chlor * Math.pow(10, (7.5 - ph)) / (1 + (cya / 20));
 aktivChlor = Math.max(0, aktivChlor);
@@ -157,21 +156,6 @@ else if (aktivChlor > 0.60) {
 }
 else {
     text += "🟢 Aktivchlor optimal.<br>";
-/* Chlor */
-
-if (chlor < 0.5) {
-
-let gramm = Math.max(0, Math.round((1.0 - chlor) *72));
-
-text += "💊 Bayrol Chloryte: <b>" + gramm + " g</b><br>";
-
-} else if (chlor > 1.5) {
-
-text += "⚠️ Chlor zu hoch – kein Chlor zugeben.<br>";
-
-} else {
-
-text += "✅ Chlor optimal.<br>";
 
 }
 
