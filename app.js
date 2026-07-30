@@ -39,12 +39,9 @@ window.onload = () => {
 async function loadWeather() {
 
     try {
-
-        const url = "https://api.open-meteo.com/v1/forecast?latitude=51.55&longitude=7.31&current=temperature_2m,weather_code";
-
-        const response = await fetch(url);
-
-        const data = await response.json();
+const url = "https://api.open-meteo.com/v1/forecast?latitude=51.55&longitude=7.31&current=temperature_2m,weather_code";
+ const response = await fetch(url);
+ const data = await response.json();
 
         document.getElementById("weatherTemp").innerText =
 
@@ -115,47 +112,34 @@ const pool = 7200;
     
 const cya = Number(document.getElementById("cya").value);
 const temp = Number(document.getElementById("temp").value);
-
 let text = "<h3>Dosierung für 7.200 Liter</h3>";
 
 /* pH */
 
 if (ph > 7.4) {
 const phMinusName =
-
 document.getElementById("phMinus").options[
 
 document.getElementById("phMinus").selectedIndex
 
 ].text;
-
 const phPlusName =
-
 document.getElementById("phPlus").options[
-
 document.getElementById("phPlus").selectedIndex
 
 ].text;
-
 text += "🧪 " + phPlusName + ": <b>" + gramm + " g</b><br>";
 let gramm = Math.max(0, Math.round(((ph - 7.2) / 0.1) * 72));
-
 text += "🧪 Cristal pH-Senker: <b>" + gramm + " g</b><br>";
-
 } else if (ph < 7.0) {
-
 let gramm = Math.max(0, math.round(((7.2 - ph) / 0.1) * 72));
-
 text += "🧪 Cristal pH-Heber: <b>" + gramm + " g</b><br>";
-
 } else {
-
 text += "✅ pH optimal.<br>";
 
 }
 /* Aktiv wirksames Chlor */
-const cya = Number(document.getElementById("cya").value);
-const temp = Number(document.getElementById("temp").value);
+
 // Näherungsformel für aktives Chlor
 let aktivChlor = chlor * Math.pow(10, (7.5 - ph)) / (1 + (cya / 20));
 aktivChlor = Math.max(0, aktivChlor);
