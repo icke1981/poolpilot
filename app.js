@@ -153,7 +153,27 @@ text += "🧪 Cristal pH-Heber: <b>" + gramm + " g</b><br>";
 text += "✅ pH optimal.<br>";
 
 }
-
+/* Aktiv wirksames Chlor */
+const cya = Number(document.getElementById("cya").value);
+const temp = Number(document.getElementById("temp").value);
+// Näherungsformel für aktives Chlor
+let aktivChlor = chlor * Math.pow(10, (7.5 - ph)) / (1 + (cya / 20));
+aktivChlor = Math.max(0, aktivChlor);
+text += "🧪 Freies Chlor (DPD1): <b>" + chlor.toFixed(2) + " mg/L</b><br>";
+text += "⚡ Aktiv wirksames Chlor: <b>" + aktivChlor.toFixed(2) + " mg/L</b><br><br>";
+if (aktivChlor < 0.30) {
+    let ziel = 0.45;
+    let faktor = ziel / aktivChlor;
+    let neuesDPD = chlor * faktor;
+    let gramm = Math.max(0, Math.round((neuesDPD - chlor) * 72));
+    text += "🔴 Aktivchlor zu niedrig<br>";
+    text += "🧪 Bayrol Chloryte: <b>" + gramm + " g</b><br>";
+}
+else if (aktivChlor > 0.60) {
+    text += "🟡 Aktivchlor zu hoch.<br>";
+}
+else {
+    text += "🟢 Aktivchlor optimal.<br>";
 /* Chlor */
 
 if (chlor < 0.5) {
