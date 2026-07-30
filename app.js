@@ -140,7 +140,6 @@ text += "✅ pH optimal.<br>";
 }
 /* Aktiv wirksames Chlor */
 
-// Näherungsformel für aktives Chlor
 let aktivChlor = chlor * Math.pow(10, (7.5 - ph)) / (1 + (cya / 20));
 aktivChlor = Math.max(0, aktivChlor);
 text += "🧪 Freies Chlor (DPD1): <b>" + chlor.toFixed(2) + " mg/L</b><br>";
