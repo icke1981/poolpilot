@@ -142,8 +142,8 @@ let gramm = Math.max(0, math.round(((7.2 - ph) / 0.1) * 72));
 text += "🧪 Cristal pH-Heber: <b>" + gramm + " g</b><br>";
 } else {
 text += "✅ pH optimal.<br>";
-
 }
+    
 // Aktiv wirksames Chlor berechnen
 let aktivChlor = berechneAktivchlor(ph, chlor, cya, temp);
 aktivChlor = Math.max(0, aktivChlor);
