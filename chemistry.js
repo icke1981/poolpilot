@@ -1,4 +1,4 @@
-console.log("chemistry.js wurde geladen");
+console.log("chemistry.js wird geladen");
 
 // PoolPilot 2.4
 
