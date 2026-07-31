@@ -1,3 +1,5 @@
+console.log("chemistry.js wurde geladen");
+
 // PoolPilot 2.4
 
 // Chemische Berechnungen
