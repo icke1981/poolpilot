@@ -212,21 +212,23 @@ document.getElementById("chlorStatus").innerText = Number(data.cl).toFixed(2) + 
 document.getElementById("tempStatus").innerText = data.temp + " °C";
 document.getElementById("nextMeasure").innerText = "Heute";
  const status = document.getElementById("status");
+     const jetzt = new Date();
+
+const uhrzeit =
+
+String(jetzt.getHours()).padStart(2,"0") + ":" +
+
+String(jetzt.getMinutes()).padStart(2,"0");
+
+status.innerHTML =
+
+"✅ Letzte Messung: <b>" + data.date + " " + uhrzeit + "</b>";
 
 status.innerHTML =
 
 "✅ Letzte Messung: " + data.date + " • pH " + Number(data.ph).toFixed(2);    
 if (data.ph < 7) {
- status.innerText = "Status: 🟡 pH korrigieren";
-
-} else if (data.ph > 7.4) {
- status.innerText = "Status: 🟡 pH korrigieren";
-} else if (data.cl < 0.5) {
- status.innerText = "Status: 🟡 Chlor erhöhen";
-} else if (data.cl > 1.5) {
- status.innerText = "Status: 🟡 Chlor zu hoch";
-} else {
- status.innerText = "Status: 🟢 Wasserwerte gut";
+ 
 }
 }  
 function drawChart() {
