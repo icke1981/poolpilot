@@ -211,6 +211,11 @@ document.getElementById("phStatus").innerText = Number(data.ph).toFixed(2);
 document.getElementById("chlorStatus").innerText = Number(data.cl).toFixed(2) + " mg/l";
 document.getElementById("tempStatus").innerText = data.temp + " °C";
 document.getElementById("nextMeasure").innerText = "Heute";
+ const status = document.getElementById("status");
+
+status.innerHTML =
+
+"✅ Letzte Messung: " + data.date + " • pH " + Number(data.ph).toFixed(2);    
 if (data.ph < 7) {
  status.innerText = "Status: 🟡 pH korrigieren";
 
