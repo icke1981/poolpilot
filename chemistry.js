@@ -21,4 +21,38 @@ function berechneAktivchlor(ph, dpd1, cya, temp) {
     return dpd1 * hocl * cyaFaktor;
 
 }
+function bewerteAktivchlor(wert) {
 
+    if (wert < 0.30) {
+
+        return {
+
+            status: "zu niedrig",
+
+            farbe: "red"
+
+        };
+
+    }
+
+    if (wert > 0.60) {
+
+        return {
+
+            status: "zu hoch",
+
+            farbe: "orange"
+
+        };
+
+    }
+
+    return {
+
+        status: "optimal",
+
+        farbe: "green"
+
+    };
+
+}
