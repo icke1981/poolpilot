@@ -182,20 +182,12 @@ if (wert < 0.30) {
 const aktivInfo = bewerteAktivchlor(aktivChlor);
 
 text += "<br>";
+const aktivInfo = bewerteAktivchlor(aktivChlor, chlor, pool);
 
-if (aktivInfo.farbe === "red") {
+text += "<br>";
 
-    text += "🔴 Aktivchlor zu niedrig.<br>";
+text += aktivInfo.text;
 
-} else if (aktivInfo.farbe === "orange") {
-
-    text += "🟡 Aktivchlor zu hoch.<br>";
-
-} else {
-
-    text += "🟢 Aktivchlor optimal.<br>";
-
-}
 /* Multitab */
 
 if (chlor < 1.0) {
