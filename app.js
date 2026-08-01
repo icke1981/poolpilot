@@ -179,9 +179,7 @@ if (wert < 0.30) {
     };
 
 }
-const aktivInfo = bewerteAktivchlor(aktivChlor);
 
-text += "<br>";
 const aktivInfo = bewerteAktivchlor(aktivChlor, chlor, pool);
 
 text += "<br>";
