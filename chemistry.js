@@ -1,7 +1,6 @@
 console.log("chemistry.js wird geladen");
 
 // PoolPilot 2.4
-
 // Chemische Berechnungen
 
 function berechneAktivchlor(ph, dpd1, cya, temp) {
