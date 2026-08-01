@@ -146,22 +146,56 @@ let aktivChlor = berechneAktivchlor(ph, chlor, cya, temp);
 aktivChlor = Math.max(0, aktivChlor);
 text += "🧪 Freies Chlor (DPD1): <b>" + chlor.toFixed(2) + " mg/L</b><br>";
 text += "⚡ Aktiv wirksames Chlor: <b>" + aktivChlor.toFixed(2) + " mg/L</b><br><br>";
-if (aktivChlor < 0.30) {
-    let ziel = 0.45;
-    let faktor = ziel / aktivChlor;
-    let neuesDPD = chlor * faktor;
-    let gramm = Math.max(0, Math.round((neuesDPD - chlor) * 72));
-    text += "🔴 Aktivchlor zu niedrig<br>";
-   text += "⚠️ Dosierung wird noch berechnet – bitte nicht nach dieser Anzeige dosieren.<br>"; 
-}
-else if (aktivChlor > 0.60) {
-    text += "🟡 Aktivchlor zu hoch.<br>";
-}
-else {
-    text += "🟢 Aktivchlor optimal.<br>";
+function bewerteAktivchlor(wert) {
+if (wert < 0.30) {
+        return {
+
+            status: "zu niedrig",
+
+            farbe: "red"
+
+        };
+
+    }
+
+    if (wert > 0.60) {
+
+        return {
+
+            status: "zu hoch",
+
+            farbe: "orange"
+
+        };
+
+    }
+
+    return {
+
+        status: "optimal",
+
+        farbe: "green"
+
+    };
 
 }
+const aktivInfo = bewerteAktivchlor(aktivChlor);
 
+text += "<br>";
+
+if (aktivInfo.farbe === "red") {
+
+    text += "🔴 Aktivchlor zu niedrig.<br>";
+
+} else if (aktivInfo.farbe === "orange") {
+
+    text += "🟡 Aktivchlor zu hoch.<br>";
+
+} else {
+
+    text += "🟢 Aktivchlor optimal.<br>";
+
+}
 /* Multitab */
 
 if (chlor < 1.0) {
