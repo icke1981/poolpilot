@@ -29,7 +29,9 @@ function bewerteAktivchlor(wert) {
 
             status: "zu niedrig",
 
-            farbe: "red"
+            farbe: "red",
+
+            text: "🔴 Aktivchlor zu niedrig.<br>"
 
         };
 
@@ -41,7 +43,9 @@ function bewerteAktivchlor(wert) {
 
             status: "zu hoch",
 
-            farbe: "orange"
+            farbe: "orange",
+
+            text: "🟡 Aktivchlor zu hoch.<br>"
 
         };
 
@@ -51,8 +55,11 @@ function bewerteAktivchlor(wert) {
 
         status: "optimal",
 
-        farbe: "green"
+        farbe: "green",
+
+        text: "🟢 Aktivchlor optimal.<br>"
 
     };
 
 }
+
