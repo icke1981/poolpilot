@@ -34,7 +34,13 @@ function bewerteAktivchlor(aktivChlor, dpd1, pool) {
     } else {
         text += "🟢 Aktivchlor optimal.<br>";
     }
-    return {
+if (dpd1 < 1.0) {
+    text += "🟦 GlobaClean: 1 Tablette einlegen.<br>";
+} else {
+    text += "🟦 Keine neue Tablette erforderlich.<br>";
+}
+text += "<br>⏳ Filteranlage mindestens 12 Stunden laufen lassen.<br>";
+      return {
         text: text
     };
 }
