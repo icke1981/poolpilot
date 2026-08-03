@@ -19,47 +19,22 @@ function berechneAktivchlor(ph, dpd1, cya, temp) {
     // Aktiv wirksames Chlor
 
     return dpd1 * hocl * cyaFaktor;
-
 }
-function bewerteAktivchlor(wert) {
-
-    if (wert < 0.30) {
-
-        return {
-
-            status: "zu niedrig",
-
-            farbe: "red",
-
-            text: "🔴 Aktivchlor zu niedrig.<br>"
-
-        };
-
-    }
-
-    if (wert > 0.60) {
-
-        return {
-
-            status: "zu hoch",
-
-            farbe: "orange",
-
-            text: "🟡 Aktivchlor zu hoch.<br>"
-
-        };
-
-    }
-
-    return {
-
-        status: "optimal",
-
-        farbe: "green",
-
-        text: "🟢 Aktivchlor optimal.<br>"
-
-    };
-
+function bewerteAktivchlor(aktivChlor, dpd1, pool) {
+    let text = "";
+    if (aktivChlor < 0.30) {
+        const ziel = 0.45;
+        const faktor = ziel / aktivChlor;
+        const neuesDPD = dpd1 * faktor;
+        const gramm = Math.max(0, Math.round((neuesDPD - dpd1) * 72));
+        text += "🔴 Aktivchlor zu niedrig.<br>";
+        text += "🧪 Bayrol Chloryte: <b>" + gramm + " g</b><br>";
+    } else if (aktivChlor > 0.60) {
+        text += "🟡 Aktivchlor zu hoch.<br>";
+    } else {
+        text += "🟢 Aktivchlor optimal.<br>";
+    }
+    return {
+        text: text
+    };
 }
-
