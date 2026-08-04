@@ -28,7 +28,7 @@ function bewerteAktivchlor(aktivChlor, dpd1, pool) {
         const neuesDPD = dpd1 * faktor;
         const gramm = Math.max(0, Math.round((neuesDPD - dpd1) * 72));
         text += "🔴 Aktivchlor zu niedrig.<br>";
-        text += "🧪 Bayrol Chloryte: <b>" + gramm + " g</b><br>";
+        text += "🧪 Agualeve: <b>" + gramm + " g</b><br>";
     } else if (aktivChlor > 0.60) {
         text += "🟡 Aktivchlor zu hoch.<br>";
     } else {
