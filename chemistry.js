@@ -1,3 +1,15 @@
+// PoolPilot 2.4
+// Produkte
+const chlorProdukte = {
+  "AGUALEVE Chlorgranulat": {
+    name: "AGUALEVE Chlorgranulat",
+    dosierung: 72
+  },
+  "Bayrol Chloryte": {
+    name: "Bayrol Chloryte",
+    dosierung: 72
+  }
+};
 
 // PoolPilot 2.4
 // Chemische Berechnungen
